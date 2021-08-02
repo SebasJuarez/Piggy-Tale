@@ -1,0 +1,60 @@
+public class Cerdito extends Actor
+{
+    public Cerdito() //Tamaño de homero  /*Cambia el tamaño de Homero a uno mas pequeno*/
+    {
+        GreenfootImage myImage = getImage();
+        int MyNewHeight = (int)myImage.getHeight()/4;
+        int MyNewWidth = (int)myImage.getWidth()/4;
+        myImage.scale(MyNewWidth, MyNewHeight);
+    }
+    Fondo thisGame;
+    public void act() /*Variables*/
+    {
+       moveAndTurn();
+       eat1();
+    }
+        
+    public void moveAndTurn() /*Movimiento del Cerdito*/ 
+    {    
+    int y= getY();
+        if (Greenfoot.isKeyDown("right"))
+    {   
+            move(4);
+    }    
+        if (Greenfoot.isKeyDown("left"))
+    {   
+            move(-4);
+    }   
+        if (Greenfoot.isKeyDown("up"))
+    {   
+            y--;
+            y--;
+            y--;
+            y--;
+    }  
+        if (Greenfoot.isKeyDown("down"))
+    { 
+            y++;
+            y++;
+            y++;
+            y++;
+    } 
+    setLocation(getX(),y);
+    }
+    
+    public void eat1() /*Comida*/ 
+    {
+    Actor manzana;
+    manzana = getOneObjectAtOffset(0, 0, Manzana.class);
+    if (manzana != null)
+    {
+        World world;
+        world = getWorld();
+        world.removeObject(manzana);
+        thisGame.score++;
+        Greenfoot.playSound("eating.wav");
+        Fondo mundo = (Fondo)world;
+    }
+    }
+
+}
