@@ -1,0 +1,25 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+
+public class Manzana extends Actor //Sera la funcion publica que vera el usuario para la manzana
+{
+    
+      public Manzana ()
+    {
+        GreenfootImage myImage = getImage(); //Obtener imagen 
+        int MyNewHeight = (int)myImage.getHeight()/10; //Tamaño de imagen 
+        int MyNewWidth = (int)myImage.getWidth()/10; //Tamaño de imagen 
+        myImage.scale(MyNewWidth, MyNewHeight); //Escala de imagen del granjero
+        
+    }
+    public void act() //Moviemientos de las manzanas
+    {
+         
+        // Moviemiento
+                move(2);
+                if(Greenfoot.getRandomNumber(100) > 5)
+                {
+                turn(Greenfoot.getRandomNumber(70)-35);
+    }    
+}
+}
