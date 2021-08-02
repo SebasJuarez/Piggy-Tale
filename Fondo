@@ -1,0 +1,68 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+public class Fondo extends World
+{
+    public static int score = 0; 
+  
+    public Fondo()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(600, 400, 1); 
+        prepare();
+    }
+    public void act()
+    {
+     showText("Score: " + score, 50, 25);//Contador
+     if(getObjects(Manzana.class).isEmpty()){
+         Greenfoot.setWorld(new EndGameScreen(Color.BLUE, Color.WHITE, "YOU WON!!"));//Color de letra y mensaje
+         
+        }
+    }
+    
+  
+    private void prepare()
+    {
+        score = 0;
+        showText("Score: " + score, 50, 25);
+        Manzana manzana = new Manzana();
+        addObject(manzana,426,208);
+        manzana.setLocation(394,206);
+        Cerdito cerdito = new Cerdito();
+        addObject(cerdito,150,178);
+        manzana.setLocation(474,206);
+        Granjero granjero = new Granjero();
+        addObject(granjero,474,206);
+        manzana.setLocation(424,275);
+        cerdito.setLocation(36,359);
+        manzana.setLocation(499,110);
+        manzana.setLocation(544,373);
+        manzana.setLocation(304,295);
+        manzana.setLocation(532,368);
+        manzana.setLocation(521,352);
+        manzana.setLocation(513,349);
+        Manzana manzana2 = new Manzana();
+        addObject(manzana2,477,98);
+        Manzana manzana3 = new Manzana();
+        addObject(manzana3,444,76);
+        manzana.setLocation(508,259);
+        Manzana manzana4 = new Manzana();
+        addObject(manzana4,508,259);
+        manzana.setLocation(464,202);
+        Granjero granjero2 = new Granjero();
+        addObject(granjero2,464,202);
+        manzana.setLocation(471,176);
+        Granjero granjero3 = new Granjero();
+        addObject(granjero3,471,176);
+        manzana.setLocation(430,156);
+        Granjero granjero4 = new Granjero();
+        addObject(granjero4,430,156);
+        manzana.setLocation(464,179);
+        Manzana manzana5 = new Manzana();
+        addObject(manzana5,464,179);
+        Manzana manzana6 = new Manzana();
+        addObject(manzana6,547,117);
+        manzana4.setLocation(514,299);
+        Manzana manzana7 = new Manzana();
+        addObject(manzana7,514,299);
+    }
+}
