@@ -2,11 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Cerdito extends Actor
 {
-    public Cerdito() //Tamaño de homero  /*Cambia el tamaño de Homero a uno mas pequeno*/
+    public Cerdito() //Tamaño de homero  /*Cambia el tamaño del cerdito a uno mas pequeno*/
     {
         GreenfootImage myImage = getImage();
-        int MyNewHeight = (int)myImage.getHeight()/4;
-        int MyNewWidth = (int)myImage.getWidth()/4;
+        int MyNewHeight = (int)myImage.getHeight()/9;
+        int MyNewWidth = (int)myImage.getWidth()/9;
         myImage.scale(MyNewWidth, MyNewHeight);
     }
     Fondo thisGame;
@@ -55,6 +55,12 @@ public class Cerdito extends Actor
         world.removeObject(manzana);
         thisGame.score++;
         Greenfoot.playSound("eating.wav");
+        {
+        GreenfootImage myImage = getImage();
+        int MyNewHeight = (int)myImage.getHeight()+7;
+        int MyNewWidth = (int)myImage.getWidth()+7;
+        myImage.scale(MyNewWidth, MyNewHeight);
+        }
         Fondo mundo = (Fondo)world;
     }
     }
