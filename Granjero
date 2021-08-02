@@ -1,0 +1,52 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+public class Granjero extends Actor
+{
+    
+    public Granjero ()
+    {
+        GreenfootImage myImage = getImage(); //Obtener imagen 
+        int MyNewHeight = (int)myImage.getHeight()/6; //Tamaño de imagen 
+        int MyNewWidth = (int)myImage.getWidth()/6; //Tamaño de imagen 
+        myImage.scale(MyNewWidth, MyNewHeight); //Escala de imagen del granjero
+        
+    }
+    
+    public void act() 
+    {
+        moveAround (); //Se mueva aleatoriamente 
+        eat (); //Se come al cerdo 
+    }    
+    
+    public void moveAround () //Mueve aleatoriamente
+    {
+        move(4); //Mover 4
+        if (Greenfoot.getRandomNumber(100)<10) 
+        {
+            turn(Greenfoot.getRandomNumber(90)-45);// Girar al granjero cuando 100 < 10
+        }
+        if (getX () <=5 || getX() >= getWorld().getWidth() -5)
+        {
+            turn(180); //Girar 180 grados 
+        }
+        if (getY () <=5 || getY() >= getWorld().getHeight() -5)
+        {
+            turn(180);//Girar 180 grados 
+        }
+    }
+    
+    public void eat() //Función para los granjeros
+    {
+        Actor cerdito;
+        cerdito = getOneObjectAtOffset(0, 0, Cerdito.class);  
+        if (cerdito != null) // Función de lo que hará el granjero cuando se coma al Cerdito
+        {
+            World world;
+            world = getWorld(); //Obtener el mundo
+            world.removeObject(cerdito); //Remover al cerdito
+            Greenfoot.playSound("eating.wav"); //Reproducir sonido de comida
+            Greenfoot.delay(20); //Cuando pasen 1 segundo, que salga el EndGameScreen
+            Greenfoot.setWorld(new EndGameScreen()); //Obtener EndGameScreen
+        }
+    }
+}
